@@ -39,3 +39,41 @@ const CORRECT_PASSWORD = "pos123"; // 🔐 Change this to your desired setup pas
       .then(() => console.log('✅ Service Worker registered'))
       .catch(err => console.error('❌ Service Worker failed', err));
   }
+
+const POS_PASSWORD = "1234"; // You can change this to whatever you want
+
+window.onload = () => {
+  const isLoggedIn = localStorage.getItem("pos-logged-in");
+  if (isLoggedIn === "true") {
+    showPOS();
+  } else {
+    showLogin();
+  }
+};
+
+function checkPassword() {
+  const input = document.getElementById("password-input").value;
+  const error = document.getElementById("login-error");
+
+  if (input === POS_PASSWORD) {
+    localStorage.setItem("pos-logged-in", "true");
+    showPOS();
+  } else {
+    error.textContent = "Incorrect password. Try again.";
+  }
+}
+
+function showLogin() {
+  document.getElementById("login-screen").style.display = "flex";
+  document.getElementById("pos-app").style.display = "none";
+}
+
+function showPOS() {
+  document.getElementById("login-screen").style.display = "none";
+  document.getElementById("pos-app").style.display = "block";
+}
+
+function logout() {
+  localStorage.removeItem("pos-logged-in");
+  location.reload();
+}
