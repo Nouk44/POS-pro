@@ -12,11 +12,11 @@
   <div id="login-screen">
     <h2>Enter POS Password</h2>
     <input type="password" id="password-input" placeholder="Password" />
-    <button onclick="checkPassword()">Login</button>
+    <button onclick="checkPOSPassword()">Login</button>
     <p id="login-error" style="color: red;"></p>
   </div>
   <!-- Main POS App -->
-<div id="pos-app" style="display: none;">
+  <div id="pos-app" style="display: none;">
 
   <header class="header">
     <div id="date-time" class="date-time"></div>
@@ -38,7 +38,6 @@
       <button id="checkout-btn">Checkout</button>
     </div>
   </div>
-</div>
   <div id="setup-screen" class="setup-screen">
     <div class="setup-box">
       <h2>🔐 Setup Access</h2>
@@ -46,6 +45,7 @@
       <button onclick="checkPassword()">Enter</button>
       <p id="setup-error" class="error-message"></p>
     </div>
+  </div>
   </div>
 
   <script src="script.js"></script>
