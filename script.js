@@ -1,4 +1,4 @@
-function updateDateTime() {
+  function updateDateTime() {
     const now = new Date();
     const dateTimeElement = document.getElementById("date-time");
     dateTimeElement.textContent = now.toLocaleString();
@@ -7,7 +7,7 @@ function updateDateTime() {
   setInterval(updateDateTime, 1000); // update every second
   updateDateTime(); // initial call
 
-const CORRECT_PASSWORD = "pos123"; // 🔐 Change this to your desired setup password
+ const CORRECT_PASSWORD = "12345"; // 🔐 Change this to your desired setup password
 
   function checkPassword() {
     const input = document.getElementById("setup-password").value;
@@ -40,18 +40,18 @@ const CORRECT_PASSWORD = "pos123"; // 🔐 Change this to your desired setup pas
       .catch(err => console.error('❌ Service Worker failed', err));
   }
 
-const POS_PASSWORD = "1234"; // You can change this to whatever you want
+ const POS_PASSWORD = "1234"; // You can change this to whatever you want
 
-window.onload = () => {
+  window.onload = () => {
   const isLoggedIn = localStorage.getItem("pos-logged-in");
   if (isLoggedIn === "true") {
     showPOS();
   } else {
     showLogin();
   }
-};
+ };
 
-function checkPassword() {
+  function checkPassword() {
   const input = document.getElementById("password-input").value;
   const error = document.getElementById("login-error");
 
@@ -61,19 +61,19 @@ function checkPassword() {
   } else {
     error.textContent = "Incorrect password. Try again.";
   }
-}
+ }
 
-function showLogin() {
+  function showLogin() {
   document.getElementById("login-screen").style.display = "flex";
   document.getElementById("pos-app").style.display = "none";
-}
+ }
 
-function showPOS() {
+  function showPOS() {
   document.getElementById("login-screen").style.display = "none";
   document.getElementById("pos-app").style.display = "block";
-}
+ }
 
-function logout() {
+  function logout() {
   localStorage.removeItem("pos-logged-in");
   location.reload();
-}
+ }
