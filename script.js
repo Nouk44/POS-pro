@@ -17,6 +17,7 @@ function checkSetupPassword() {
   if (input === CORRECT_SETUP_PASSWORD) {
     localStorage.setItem("isSetupDone", "true");
     document.getElementById("setup-screen").style.display = "none";
+    showLogin(); // After setup is done, show login screen
   } else {
     error.textContent = "Incorrect password. Try again.";
   }
