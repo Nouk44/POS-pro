@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Restaurant POS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png" type="image/png">
+</head>
+<body>
+  <header class="header">
+    <div id="date-time" class="date-time"></div>
+    <h1>🍔 My Restaurant POS</h1>
+  </header>
+  <div class="container">
+    <!-- Menu Section -->
+    <div class="menu">
+      <h2>Menu</h2>
+      <div class="menu-items" id="menu-items"></div>
+    </div>
+
+    <!-- Order Summary Section -->
+    <div class="order">
+      <h2>Order Summary</h2>
+      <ul id="order-list"></ul>
+      <p>Total: $<span id="total">0.00</span></p>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </div>
+  <div id="setup-screen" class="setup-screen">
+    <div class="setup-box">
+      <h2>🔐 Setup Access</h2>
+      <input type="password" id="setup-password" placeholder="Enter setup password">
+      <button onclick="checkPassword()">Enter</button>
+      <p id="setup-error" class="error-message"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
