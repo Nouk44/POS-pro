@@ -17,18 +17,33 @@
     <p id="login-error" style="color: red;"></p>
   </div>
   <!-- Main POS App -->
-  <div id="pos-app" style="display: none;">
+<div id="pos-app" style="display: none;">
 
   <header class="header">
     <div id="date-time" class="date-time"></div>
     <h1>🍔 My Restaurant POS</h1>
   </header>
 
+  
+
   <div class="container">
     <!-- Menu Section -->
     <div class="menu">
       <h2>Menu</h2>
-      <div class="menu-items" id="menu-items"></div>
+      <div class="menu-items" id="menu-items">
+        <div class="menu-item" data-price="10.00">
+          <button onclick="addToOrder('Burger', 10.00)">Burger
+          <p>$10.00</p></button>
+        </div>
+        <div class="menu-item" data-price="5.00">
+          <button onclick="addToOrder('Fries', 5.00)">Fries
+          <p>$5.00</p></button>
+        </div>
+        <div class="menu-item" data-price="2.00">
+          <button onclick="addToOrder('Soda', 2.00)">Soda
+          <p>$2.00</p></button>
+        </div>
+      </div>
     </div>
     
     <!-- Order Summary Section -->
@@ -36,18 +51,51 @@
       <h2>Order Summary</h2>
       <ul id="order-list"></ul>
       <p>Total: $<span id="total">0.00</span></p>
-      <button id="checkout-btn">Checkout</button>
+      <button id="checkout-btn" onclick="checkout()">Checkout</button>
+      <textarea id="order-note" placeholder="Add special instructions..." rows="3" style="width: 100%; margin-top: 10px;"></textarea>
     </div>
+    <!-- Receipt Section (Hidden by Default) -->
+    <div id="receipt" style="display: none;">
+      <h2>🧾 Receipt</h2>
+      <div id="receipt-content"></div>
+      <button onclick="printReceipt()">🖨️ Print Receipt</button>
+    </div>
+
+    <!-- Admin Button (can be hidden or styled later) -->
+    <button id="admin-btn" onclick="toggleAdmin()" style="position: fixed; bottom: 10px; right: 10px;">Admin</button>
+
+  <!-- Admin Dashboard -->
+  <div id="admin-dashboard" style="display: none; padding: 20px; background: #f4f4f4;">
+    <h2>🛠️ Admin Dashboard</h2>
+    <div id="admin-orders"></div>
+    <button onclick="clearOrders()">Clear All Orders</button>
+    <hr>
+    <h3>📝 Manage Menu</h3>
+    <div id="menu-management"></div>
+    <input type="text" id="new-item-name" placeholder="Item name" />
+    <input type="number" id="new-item-price" placeholder="Price" />
+    <button onclick="addMenuItem()">Add Item</button>
+  </div>
+  <!-- Order History Button -->
+  <button id="history-btn" onclick="toggleHistory()" style="position: fixed; bottom: 10px; left: 10px;">📜 Order History</button>
+
+  <!-- Order History Section -->
+  <div id="history-section" style="display: none; padding: 20px; background: #e7f0ff;">
+    <h2>📖 Order History</h2>
+    <div id="history-orders"></div>
+    <button onclick="clearHistory()">Clear History</button>
+  </div>
+
   </div>
   <div id="setup-screen" class="setup-screen">
     <div class="setup-box">
       <h2>🔐 Setup Access</h2>
       <input type="password" id="setup-password" placeholder="Enter setup password">
-      <button onclick="checkSetupPassword()">Enter</button>
+      <button onclick="checkPassword()">Enter</button>
       <p id="setup-error" class="error-message"></p>
     </div>
   </div>
-  </div>
+</div>
 
   <script src="script.js"></script>
 </body>
